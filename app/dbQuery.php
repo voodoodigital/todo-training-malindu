@@ -13,7 +13,7 @@ class DB
         $host = 'localhost';
         $user = 'root';
         $password = 'JanithNirmal12#$';
-        $database = 'project-pla';
+        $database = 'todolist-training2';
 
         $this->host = $host;
         $this->user = $user;
