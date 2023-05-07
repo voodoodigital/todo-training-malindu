@@ -1,0 +1,19 @@
+/* all the custom css styles will goes here.  */
+/* custom css, media queries and animations will goes here */
+/*
+ the heirachy of code should be like this
+- variables if exists
+- pc size styles (directly without media queries)
+- tablet size styles (with media queries)
+- mobile size styles (with media queries)
+- animations
+*/
+/* each class name must indicate the usecase or used UI referance along with funtionality (ex: .reminder-list-container <- here the first word indicate the location and others will describe the functionality) */
+
+.main-box {
+  margin-top: 100px;
+}
+
+.text {
+  color: red;
+}
