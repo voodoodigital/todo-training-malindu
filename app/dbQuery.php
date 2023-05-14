@@ -12,8 +12,8 @@ class DB
     {
         $host = 'localhost';
         $user = 'root';
-        $password = 'JanithNirmal12#$';
-        $database = 'todolist-training2';
+        $password = 'JanithNirmal12#$'; // janith
+        $database = 'todolist-training2'; 
 
         $this->host = $host;
         $this->user = $user;
