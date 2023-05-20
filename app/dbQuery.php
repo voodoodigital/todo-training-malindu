@@ -12,7 +12,7 @@ class DB
     {
         $host = 'localhost';
         $user = 'root';
-        $password = 'JanithNirmal12#$'; // janith
+        $password = 'KaviskaDilshan12#$'; // malidu
         $database = 'todolist-training2'; 
 
         $this->host = $host;
@@ -31,7 +31,7 @@ class DB
     }
 
     // Function that prepares a statement and binds parameters
-    public function prepare($query, $types, $params)
+    public function prepare($query, $types, $params)//parm data
     {
         // Prepare the statement using mysqli
         $stmt = $this->connection->prepare($query);
