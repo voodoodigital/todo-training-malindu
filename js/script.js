@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
-const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
+ const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
+//const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
 
 function todoListLoader() {
   let container = document.getElementById("todoContainer");
