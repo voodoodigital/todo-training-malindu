@@ -1,5 +1,5 @@
-const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
-//const API_URL="http://localhost/voodooDigital/study/todo-training-malindu/" //janith
+// const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
+const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
 
 function todoListLoader() {
   let container = document.getElementById("todoContainer");
@@ -21,7 +21,7 @@ function todoListLoader() {
         let time = todoItemData.dueDate;
 
         let todoItemUi = `
-      <div class="card primary-box mx-auto mt-5 rounded-4 text-bg-warning" style="width: 600px; height: 7rem">
+      <div class="card primary-box mx-auto mt-3 rounded-4 text-bg-warning" style="width: 600px; height: 7rem">
         <div class="card-body">
           <p class="card-text pt-3 pb-0">${todo}</p>
           <p class="card-text pt-1 pb-0 text-danger">
