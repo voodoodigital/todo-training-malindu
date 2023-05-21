@@ -17,3 +17,12 @@
 .text {
   color: red;
 }
+.topic{
+  color: red;
+}
+::placeholder {
+  color: red;
+  opacity: 1; /* Set opacity to 1 for full color */
+}
+
+
