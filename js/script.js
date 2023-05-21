@@ -1,4 +1,8 @@
+const API_URL="http://localhost/to%20do%20list/todo-training-malindu/" //malidu
+//const API_URL="http://localhost/voodooDigital/study/todo-training-malindu/" //janith
+
 function todoListLoader() {
+  
   let container = document.getElementById("todoContainer");
 
   // send the request
@@ -37,10 +41,20 @@ function todoListLoader() {
 
   request.open(
     "GET",
-    "http://localhost/voodooDigital/study/todo-training-malindu/api/todoViewProcess.php",
+    API_URL + "api/todoViewProcess.php",
     true
   );
   request.send();
 }
 
 todoListLoader();
+
+$(document).ready(function() {
+  $("#datepicker").datepicker();
+});
+
+
+
+
+
+

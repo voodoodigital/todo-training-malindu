@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap demo</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css">
+
+</head>
+
+<body>
+  <div class="mx-auto p-2 main-box border border-primary rounded-4" style="width: 600px; height: 400px">
+    <h1 class="text-primary" style=" margin-left: 200px;">To Do List</h1>
+
+    <div class="text-center mt-5 text-5 fw-bold">
+      <form>
+        <div class="mb-3">
+          <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your task" style="color: var(--bs-primary); opacity: 1;">
+        </div>
+
+        <input type="text" id="datepicker" placeholder="Select a date" class="date form-control" style="margin-left: 2px; width: 40%; margin-top: 50px;">
+        <input type="text" id="timepicker" class="form-control" placeholder="Select a time" style="width: 40%; margin-left: 350px; margin-top: -36px;">
+
+        <button type="button" class="btn btn-warning" style="margin-top: 45px; width: 34%;">Add Task</button>
+
+      </form>
+    </div>
+  </div>
+
+  <div id="todoContainer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#datepicker").datepicker();
+      $('#timepicker').clockpicker({
+        autoclose: true
+      });
+    });
+  </script>
+</body>
+
+</html>
