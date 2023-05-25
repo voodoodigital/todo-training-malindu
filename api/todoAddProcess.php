@@ -1,13 +1,14 @@
-
 <?php
 // import backend processes
 require("../app/dbQuery.php"); // file navigation is important 
 
 
-$database = new DB();
-$title = trim($_POST['title']);
-$date = $_POST['date'];
-$time = $_POST['time'];
+
+$todoAddData = $_POST['todoAddData'];
+$todoAddDataObject = json_decode($todoAddData);
+$title = $todoAddDataObject->title;
+$date = $todoAddDataObject->date;
+$time = $todoAddDataObject->time;
 
 // validate the title input
 
@@ -40,9 +41,10 @@ date_default_timezone_set('Asia/Colombo');
 $recorded_datetime = date('Y-m-d H:i:s');
 
 
+$database = new DB();
 // insert data into MySQL database
 $searchQuery = "INSERT INTO todo (`title`, `due_datetime`, `recorded_datetime`, `todo_status_id`) VALUES (?, ?, ?, 1);";
 $stmt1 = $database->prepare($searchQuery, "sss", array($title, $due_datetime, $recorded_datetime));
 
 
-echo "sucess bitch";
+echo ("success");

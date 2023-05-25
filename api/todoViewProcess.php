@@ -3,7 +3,7 @@
 require("../app/dbQuery.php"); // file navigation is important 
 
 $database = new DB();
-$searchQuery = "SELECT * FROM `todo`";
+$searchQuery = "SELECT * FROM `todo` ORDER BY `recorded_datetime` DESC";
 $results = $database->query($searchQuery);
 
 $responseArray = array();

@@ -33,7 +33,6 @@ function todoListLoader() {
 
         todoList += todoItemUi;
       }
-
       container.innerHTML = todoList;
     }
   };
@@ -43,3 +42,44 @@ function todoListLoader() {
 }
 
 document.addEventListener("DOMContentLoaded", todoListLoader);
+
+function addTodo() {
+  // catch the input from ui
+  let todo = document.getElementById("todoTitle").value;
+  let date = document.getElementById("datepicker").value;
+  let time = document.getElementById("timepicker").value;
+
+  const requestDataObject = {
+    title: todo,
+    date: date,
+    time: formatTimeForMySQL(time),
+  };
+
+  function formatTimeForMySQL(time) {
+    const [hours, minutes] = time.split(":");
+    return `${hours}:${minutes}:00`;
+  }
+
+  // store data in a form
+  let form = new FormData();
+  form.append("todoAddData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = request.responseText;
+      if (response == "success") {
+        alert(response);
+        todoListLoader();
+      } else {
+        console.log(response);
+      }
+    }
+  };
+  request.open("POST", API_URL + "api/todoAddProcess.php", true);
+  request.send(form);
+}
+
+document.getElementById("todoAddBtn").addEventListener("click", addTodo);
