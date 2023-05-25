@@ -1,6 +1,7 @@
 <?php
 // import backend processes
 require("../app/dbQuery.php"); // file navigation is important 
+require("../app/responseSender.php"); // file navigation is important 
 
 
 
@@ -10,27 +11,30 @@ $title = $todoAddDataObject->title;
 $date = $todoAddDataObject->date;
 $time = $todoAddDataObject->time;
 
-// validate the title input
 
+$responseObject = new stdClass();
+$responseObject->status = "failed";
+
+// validate the title input
 if (empty($title) || strlen($title) > 255 || strlen($title) == 0) {
     // the date input is not valid, so display an error message to the user
-    echo "Invalid title";
-    exit();
+    $responseObject->error = "Invalid title";
+    ResponseSender::send($responseObject);
 }
 // validate the date input
 $date_obj = DateTime::createFromFormat('Y-m-d', $date);
 if (!$date_obj || $date_obj->format('Y-m-d') !== $date) {
     // the date input is not valid, so display an error message to the user
-    echo "Invalid date";
-    exit();
+    $responseObject->error = "Invalid date";
+    ResponseSender::send($responseObject);
 }
 
 // validate the time input
 $time_obj = DateTime::createFromFormat('H:i:s', $time);
 if (!$time_obj || $time_obj->format('H:i:s') !== $time) {
     // the time input is not valid, so display an error message to the user
-    echo "Invalid time";
-    exit();
+    $responseObject->error = "Invalid time";
+    ResponseSender::send($responseObject);
 }
 
 // combine date and time into a single datetime value
@@ -47,4 +51,5 @@ $searchQuery = "INSERT INTO todo (`title`, `due_datetime`, `recorded_datetime`, 
 $stmt1 = $database->prepare($searchQuery, "sss", array($title, $due_datetime, $recorded_datetime));
 
 
-echo ("success");
+$responseObject->status = "success";
+ResponseSender::send($responseObject);

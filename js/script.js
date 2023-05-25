@@ -69,12 +69,12 @@ function addTodo() {
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
       // preform an action on response
-      let response = request.responseText;
-      if (response == "success") {
-        alert(response);
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert(response.status);
         todoListLoader();
       } else {
-        console.log(response);
+        console.log(response.error);
       }
     }
   };
