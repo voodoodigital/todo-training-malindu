@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div
+      class="mx-auto p-4 main-box border border-primary rounded-4"
+      style="width: 600px"
+    >
+      <h1 class="text-primary my-3 text-center">To Do List</h1>
+
+      <div class="text-center text-5 fw-bold">
+        <div class="mb-2">
+          <input
+            class="form-control mb-2 text-primary"
+            id="todoTitle"
+            aria-describedby="emailHelp"
+            placeholder="Enter your task"
+            style="opacity: 1"
+          />
+        </div>
+
+        <div class="d-flex">
+          <div class="pe-1 w-50">
+            <input
+              type="date"
+              id="datepicker"
+              placeholder="Select a date"
+              class="date form-control"
+            />
+          </div>
+          <div class="ps-1 w-50">
+            <input
+              type="time"
+              id="timepicker"
+              class="form-control"
+              placeholder="HH:MM:SS"
+              value="00:00:00"
+            />
+          </div>
+        </div>
+
+        <button
+          id="todoAddBtn"
+          type="submit"
+          class="btn btn-warning my-2 w-100"
+        >
+          Add Task
+        </button>
+      </div>
+    </div>
+
+    <div id="todoContainer"></div>
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
