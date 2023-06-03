@@ -13,6 +13,9 @@ for ($i = 0; $i < $results->num_rows; $i++) {
   $todoItemObject = new stdClass();
   $todoItemObject->title = $data["title"];
   $todoItemObject->dueDate = $data["due_datetime"];
+  $todoItemObject->id = $data["id"];
+
+
 
   array_push($responseArray, $todoItemObject);
 }
