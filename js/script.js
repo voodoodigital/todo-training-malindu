@@ -31,6 +31,7 @@ function todoListLoader() {
         ${date}
         <span class="float-end">
           <i class="bi bi-trash text-danger me-2 fs-4" onclick="deleteTodoItem(${id})"></i>
+          <i class="bi bi-check text-success me-2 fs-4" onclick="addLineThrough(${index})"></i>
         </span>
       </p>
     </div>
@@ -52,10 +53,17 @@ function todoListLoader() {
 document.addEventListener("DOMContentLoaded", todoListLoader);
 
 
-/*function addLineThrough(index) {
+function addLineThrough(index) {
   let todoText = document.getElementById(`todo-text-${index}`);
-  todoText.style.textDecoration = 'line-through';
-}*/
+  let textDecoration = todoText.style.textDecoration;
+
+  if (textDecoration === 'line-through') {
+    todoText.style.textDecoration = '';
+  } else {
+    todoText.style.textDecoration = 'line-through';
+  }
+}
+
 
 
 
