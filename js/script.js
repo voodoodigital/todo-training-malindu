@@ -1,6 +1,5 @@
-
-const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
-// const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
+// const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
+const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
 
 function todoListLoader() {
   let container = document.getElementById("todoContainer");
@@ -21,8 +20,6 @@ function todoListLoader() {
         let date = todoItemData.dueDate;
         let id = todoItemData.id;
 
-      
-
         let todoItemUi = `
   <div class="card primary-box mx-auto mt-3 rounded-4 text-bg-warning" style="width: 600px; height: 7rem">
     <div class="card-body">
@@ -42,7 +39,6 @@ function todoListLoader() {
 
 `;
 
-
         todoList += todoItemUi;
       }
       container.innerHTML = todoList;
@@ -55,15 +51,19 @@ function todoListLoader() {
 
 document.addEventListener("DOMContentLoaded", todoListLoader);
 
+<<<<<<< HEAD
 
 /*function addLineThrough(index) {
+=======
+function addLineThrough(index) {
+>>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
   let todoText = document.getElementById(`todo-text-${index}`);
   let textDecoration = todoText.style.textDecoration;
 
-  if (textDecoration === 'line-through') {
-    todoText.style.textDecoration = '';
+  if (textDecoration === "line-through") {
+    todoText.style.textDecoration = "";
   } else {
-    todoText.style.textDecoration = 'line-through';
+    todoText.style.textDecoration = "line-through";
   }
 }*/
 
@@ -99,6 +99,7 @@ function addLineThrough(index, id) {
   }
 }
 
+<<<<<<< HEAD
 
 
 
@@ -109,30 +110,29 @@ function addLineThrough(index, id) {
 
 
 
+=======
+>>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
 function deleteTodoItem(id) {
   // send the request
   let request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
-       
       let response = JSON.parse(request.responseText);
-    if (response.status == "success") {
+      if (response.status == "success") {
         alert(response.status);
         todoListLoader();
-
-         
       } else {
         console.log(response.error);
       }
-      
     }
   };
 
-  request.open("GET", API_URL + "api/todoDelete.php?id="+id , true);
+  request.open("GET", API_URL + "api/todoDelete.php?id=" + id, true);
   request.send();
 }
 
+<<<<<<< HEAD
 
 
 function editTodoItem(id) {
@@ -169,6 +169,8 @@ function editTodoItem(id) {
 
 
 
+=======
+>>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
 function addTodo() {
   // catch the input from ui
   let todo = document.getElementById("todoTitle").value;
@@ -195,7 +197,7 @@ function addTodo() {
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
       // preform an action on response
-     /* let response = JSON.parse(request.responseText);
+      /* let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         alert(response.status);
         todoListLoader();
