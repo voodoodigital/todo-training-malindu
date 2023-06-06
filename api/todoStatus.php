@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
     $number=2;
 
      // Prepare the update query
-     $query = "UPDATE todo SET title = ? WHERE todo_status_id = ?";
+     $query = "UPDATE todo SET todo_status_id = ? WHERE id = ?";
      $stmt = $db->prepare($query, 'si', [$number, $id]);
 
 
