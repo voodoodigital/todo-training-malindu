@@ -31,7 +31,10 @@ function todoListLoader() {
         ${date}
         <span class="float-end">
           <i class="bi bi-trash text-danger me-2 fs-4" onclick="deleteTodoItem(${id})"></i>
-          <i class="bi bi-check text-success me-2 fs-4" onclick="addLineThrough(${index})"></i>
+          <i class="bi bi-check text-success me-2 fs-4" onclick="addLineThrough(${index}, ${id})"></i>
+
+          <i class="bi bi-pencil-square edit-icon text-primary" onclick="editTodoItem(${id})"></i>
+
         </span>
       </p>
     </div>
@@ -53,7 +56,7 @@ function todoListLoader() {
 document.addEventListener("DOMContentLoaded", todoListLoader);
 
 
-function addLineThrough(index) {
+/*function addLineThrough(index) {
   let todoText = document.getElementById(`todo-text-${index}`);
   let textDecoration = todoText.style.textDecoration;
 
@@ -62,7 +65,46 @@ function addLineThrough(index) {
   } else {
     todoText.style.textDecoration = 'line-through';
   }
+}*/
+
+
+
+
+function addLineThrough(index, id) {
+  let todoText = document.getElementById(`todo-text-${index}`);
+  let textDecoration = todoText.style.textDecoration;
+
+  if (textDecoration === 'line-through') {
+    todoText.style.textDecoration = '';
+  } else {
+    // send the request
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+      if (request.readyState == 4) {
+        let response = JSON.parse(request.responseText);
+        console.log(response.status_id)
+        if (response.status === "success" && response.status_id === '2') {
+          todoText.style.textDecoration = 'line-through';
+          alert(response.status)
+        }
+        else {
+          console.log(response.error);
+        }
+      }
+    };
+
+    request.open("GET", API_URL + "api/todoStatus.php?id=" + id, true);
+    request.send();
+  }
 }
+
+
+
+
+
+
+
 
 
 
@@ -90,6 +132,39 @@ function deleteTodoItem(id) {
   request.open("GET", API_URL + "api/todoDelete.php?id="+id , true);
   request.send();
 }
+
+
+
+function editTodoItem(id) {
+  var newText = prompt("Enter the new text:");
+
+  if (newText !== null) {
+    // send the request
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+      if (request.readyState == 4) {
+        let response = JSON.parse(request.responseText);
+        if (response.status === "success") {
+          alert("Todo item updated successfully");
+          todoListLoader();
+        } else {
+          console.log(response.error);
+        }
+      }
+    };
+
+    request.open("POST", API_URL + "api/todoEdit.php", true);
+    request.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
+    request.send(`id=${id}&text=${encodeURIComponent(newText)}`);
+  }
+}
+
+
+
 
 
 
