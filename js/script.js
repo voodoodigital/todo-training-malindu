@@ -51,12 +51,8 @@ function todoListLoader() {
 
 document.addEventListener("DOMContentLoaded", todoListLoader);
 
-<<<<<<< HEAD
 
 /*function addLineThrough(index) {
-=======
-function addLineThrough(index) {
->>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
   let todoText = document.getElementById(`todo-text-${index}`);
   let textDecoration = todoText.style.textDecoration;
 
@@ -99,19 +95,6 @@ function addLineThrough(index, id) {
   }
 }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
 function deleteTodoItem(id) {
   // send the request
   let request = new XMLHttpRequest();
@@ -132,7 +115,6 @@ function deleteTodoItem(id) {
   request.send();
 }
 
-<<<<<<< HEAD
 
 
 function editTodoItem(id) {
@@ -169,8 +151,6 @@ function editTodoItem(id) {
 
 
 
-=======
->>>>>>> e4673a00f5b48f2a6ba910c61805662058fc0e7e
 function addTodo() {
   // catch the input from ui
   let todo = document.getElementById("todoTitle").value;
