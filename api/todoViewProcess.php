@@ -14,6 +14,8 @@ for ($i = 0; $i < $results->num_rows; $i++) {
   $todoItemObject->title = $data["title"];
   $todoItemObject->dueDate = $data["due_datetime"];
   $todoItemObject->id = $data["id"];
+  $todoItemObject->status_id = $data["todo_status_id"];
+
 
 
 
