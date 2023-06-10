@@ -1,9 +1,5 @@
-
-const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
-// const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
-
-
-
+// const API_URL = "http://localhost/to%20do%20list/todo-training-malindu/"; //malidu
+const API_URL = "http://localhost/voodooDigital/study/todo-training-malindu/"; //janith
 
 function todoListLoader() {
   let container = document.getElementById("todoContainer");
@@ -25,7 +21,7 @@ function todoListLoader() {
         let id = todoItemData.id;
         let status_id = todoItemData.status_id;
 
-        if(status_id==2){
+        if (status_id == 2) {
           let todoItemUi = `
           <div class="card primary-box mx-auto mt-3 rounded-4 text-bg-warning" style="width: 600px; height: 7rem">
             <div class="card-body">
@@ -41,11 +37,8 @@ function todoListLoader() {
             </div>
           </div>
         `;
-        todoList += todoItemUi;
-
-
-        }
-        else{
+          todoList += todoItemUi;
+        } else {
           let todoItemUi = `
           <div class="card primary-box mx-auto mt-3 rounded-4 text-bg-warning" style="width: 600px; height: 7rem">
             <div class="card-body">
@@ -61,14 +54,8 @@ function todoListLoader() {
             </div>
           </div>
         `;
-        todoList += todoItemUi;
-
-
+          todoList += todoItemUi;
         }
-
-      
-
-        
       }
       container.innerHTML = todoList;
     }
@@ -79,7 +66,6 @@ function todoListLoader() {
 }
 
 document.addEventListener("DOMContentLoaded", todoListLoader);
-
 
 /*function addLineThrough(index) {
   let todoText = document.getElementById(`todo-text-${index}`);
@@ -92,72 +78,43 @@ document.addEventListener("DOMContentLoaded", todoListLoader);
   }
 }*/
 
-function lineTodo(id){
+function lineTodo(id) {
   let request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
-       
       let response = JSON.parse(request.responseText);
-    if (response.status == "success" && response.status_id=='2') {
-        alert(response.status );
+      if (response.status == "success" && response.status_id == "2") {
+        alert(response.status);
         todoListLoader();
-
-        
-        
-
-         
       } else {
         console.log(response.error);
       }
-      
     }
   };
 
-  request.open("GET", API_URL + "api/todoStatus.php?id="+id , true);
+  request.open("GET", API_URL + "api/todoStatus.php?id=" + id, true);
   request.send();
-
 }
 
-function lineTodos(id){
+function lineTodos(id) {
   let request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
-       
       let response = JSON.parse(request.responseText);
-    if (response.status == "success" && response.status_id=='1') {
-        alert(response.status );
+      if (response.status == "success" && response.status_id == "1") {
+        alert(response.status);
         todoListLoader();
-        
-        
-
-         
       } else {
         console.log(response.error);
       }
-      
     }
   };
 
-  request.open("GET", API_URL + "api/todoStatuss.php?id="+id , true);
+  request.open("GET", API_URL + "api/todoStatuss.php?id=" + id, true);
   request.send();
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function deleteTodoItem(id) {
   // send the request
@@ -165,25 +122,19 @@ function deleteTodoItem(id) {
 
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
-       
       let response = JSON.parse(request.responseText);
-    if (response.status == "success") {
+      if (response.status == "success") {
         alert(response.status);
         todoListLoader();
-
-         
       } else {
         console.log(response.error);
       }
-      
     }
   };
 
-  request.open("GET", API_URL + "api/todoDelete.php?id="+id , true);
+  request.open("GET", API_URL + "api/todoDelete.php?id=" + id, true);
   request.send();
 }
-
-
 
 function editTodoItem(id) {
   var newText = prompt("Enter the new text:");
@@ -212,12 +163,6 @@ function editTodoItem(id) {
     request.send(`id=${id}&text=${encodeURIComponent(newText)}`);
   }
 }
-
-
-
-
-
-
 
 function addTodo() {
   // catch the input from ui
